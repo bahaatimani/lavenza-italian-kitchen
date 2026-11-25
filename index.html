@@ -1,0 +1,2087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#183528">
+    <title>LAVENZA | Italian Restaurant & Dining</title>
+    <meta name="description" content="Discover LAVENZA Italian Kitchen. Explore our menu, learn about our restaurant, and request a table reservation.">
+
+    <meta property="og:title" content="LAVENZA | Italian Kitchen">
+    <meta property="og:description" content="Discover LAVENZA Italian Kitchen, explore our menu, and request a table reservation.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .menu-button:active {
+            transform: translateY(-1px) scale(0.97);
+            box-shadow: 0 3px 10px rgba(216, 189, 134, 0.25);
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f5ef;
+            color: #1c2b22;
+        }
+
+        /* Navigation */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background-color: #183528;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+            .logo img {
+                height: 65px;
+                width: auto;
+                display: block;
+                object-fit: contain;
+            }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin-left: 30px;
+            font-size: 15px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+            nav a::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -6px;
+                width: 0;
+                height: 2px;
+                background-color: #d8bd86;
+                transition: width 0.3s ease;
+            }
+
+            nav a:hover {
+                color: #d8bd86;
+            }
+
+                nav a:hover::after {
+                    width: 100%;
+                }
+
+        /* Hero Section */
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 60px 8%;
+            background: linear-gradient(rgba(15, 30, 20, 0.65), rgba(15, 30, 20, 0.65)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1920&q=85');
+            background-color: #334b3a;
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+            .hero-content h4 {
+                color: #d8bd86;
+                letter-spacing: 4px;
+                margin-bottom: 20px;
+                font-weight: normal;
+            }
+
+            .hero-content h1 {
+                font-size: 65px;
+                margin-bottom: 25px;
+                line-height: 1.15;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+                line-height: 1.8;
+                margin-bottom: 35px;
+                color: #e6e6e6;
+            }
+
+        .menu-button {
+            display: inline-block;
+            background-color: #d8bd86;
+            color: #183528;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .menu-button {
+            transition: all 0.35s ease;
+        }
+
+            .menu-button:hover {
+                background-color: #ead5a7;
+                transform: translateY(-5px);
+                box-shadow: 0 8px 20px rgba(216, 189, 134, 0.35);
+            }
+
+        /* Reservation Button */
+
+        .reservation-button {
+            display: inline-block;
+            margin-left: 15px;
+            padding: 15px 30px;
+            background-color: transparent;
+            color: #d8bd86;
+            border: 1px solid #d8bd86;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.35s ease;
+        }
+
+            .reservation-button:hover {
+                background-color: #d8bd86;
+                color: #183528;
+                transform: translateY(-5px);
+                box-shadow: 0 8px 20px rgba(216, 189, 134, 0.3);
+            }
+
+        /* About Section */
+
+        .about {
+            text-align: center;
+            padding: 90px 10%;
+        }
+
+            .about h2 {
+                font-size: 36px;
+                margin-bottom: 25px;
+                color: #183528;
+            }
+
+            .about p {
+                max-width: 750px;
+                margin: auto;
+                font-size: 17px;
+                line-height: 1.9;
+                color: #666;
+            }
+
+        /* Footer */
+
+        footer {
+            background-color: #183528;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Menu Section */
+
+        .menu-section {
+            padding: 90px 8%;
+            background-color: #f8f5ef;
+        }
+
+        .menu-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+            .menu-header span {
+                color: #b08d57;
+                letter-spacing: 4px;
+                font-size: 13px;
+                font-weight: bold;
+            }
+
+            .menu-header h2 {
+                font-size: 40px;
+                color: #183528;
+                margin: 15px 0;
+            }
+
+            .menu-header p {
+                color: #777;
+                font-size: 16px;
+            }
+
+        /* Menu Grid */
+
+        /* Menu Grid */
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Menu Card */
+
+        .menu-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+            .menu-card:hover {
+                transform: translateY(-8px);
+            }
+
+            .menu-card img {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+                object-position: center;
+                transition: transform 0.4s ease;
+            }
+
+            .menu-card:hover img {
+                transform: scale(1.05);
+            }
+
+        .menu-card-content {
+            padding: 25px;
+        }
+
+            .menu-card-content h3 {
+                font-size: 21px;
+                color: #183528;
+                margin-bottom: 12px;
+            }
+
+            .menu-card-content p {
+                color: #777;
+                line-height: 1.6;
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+
+        .price {
+            color: #b08d57;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+
+        /* Food Category Label */
+
+        .food-category {
+            display: inline-block;
+            color: #b08d57;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        /* Menu Filter Buttons */
+
+        .menu-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 12px 28px;
+            border: 1px solid #183528;
+            background-color: transparent;
+            color: #183528;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+            .filter-btn:hover,
+            .filter-btn.active {
+                background-color: #183528;
+                color: #ffffff;
+            }
+
+        /* Contact Section */
+
+        .contact-section {
+            padding: 90px 8%;
+            background-color: #183528;
+            color: white;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+            .contact-header span {
+                color: #d8bd86;
+                letter-spacing: 4px;
+                font-size: 13px;
+                font-weight: bold;
+            }
+
+            .contact-header h2 {
+                font-size: 40px;
+                margin: 15px 0;
+                color: #ffffff;
+            }
+
+            .contact-header p {
+                color: #d0d6d1;
+                font-size: 16px;
+            }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            padding: 35px 25px;
+            text-align: center;
+            border: 1px solid rgba(216, 189, 134, 0.3);
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.04);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+            .contact-card:hover {
+                transform: translateY(-5px);
+                background-color: rgba(255, 255, 255, 0.08);
+            }
+
+            .contact-card h3 {
+                color: #d8bd86;
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .contact-card p {
+                color: #e1e5e1;
+                line-height: 1.8;
+                font-size: 15px;
+            }
+
+            /* Contact Email Link */
+
+            .contact-card a {
+                color: #e0c58b;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+                .contact-card a:hover {
+                    color: #ffffff;
+                    text-decoration: underline;
+                }
+
+        /* Responsive Menu Layout */
+
+        @media (max-width: 900px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile Menu Layout */
+
+        @media (max-width: 600px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-section {
+                padding: 60px 5%;
+            }
+
+            .contact-section {
+                padding: 60px 5%;
+            }
+
+            .menu-card img {
+                height: 220px;
+            }
+        }
+
+        /* Mobile Navigation */
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px 5%;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+                nav a {
+                    margin-left: 0;
+                    font-size: 13px;
+                }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+        }
+
+        /* Mobile Hero Adjustment */
+
+        @media (max-width: 600px) {
+            .hero {
+                min-height: 70vh;
+                padding: 50px 6%;
+                background-position: center;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+                line-height: 1.2;
+            }
+
+            .hero-content h4 {
+                font-size: 12px;
+                letter-spacing: 3px;
+            }
+
+            .hero-content p {
+                line-height: 1.7;
+            }
+
+            .menu-button {
+                padding: 13px 24px;
+            }
+        }
+
+        /* Mobile About Section */
+
+        @media (max-width: 600px) {
+            .about {
+                padding: 60px 6%;
+            }
+
+                .about h2 {
+                    font-size: 28px;
+                    margin-bottom: 20px;
+                }
+
+                .about p {
+                    font-size: 15px;
+                    line-height: 1.8;
+                }
+        }
+
+        /* Scroll Reveal Animation */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+            .reveal.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        /* Staggered Menu Animation */
+
+        .menu-card.reveal {
+            transition-delay: 0.15s;
+        }
+
+        /* Active Navigation Link */
+
+        nav a.active {
+            color: #d8bd86;
+            position: relative;
+            text-shadow: 0 0 10px rgba(216, 189, 134, 0.45);
+        }
+
+        }
+
+        nav a.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 2px;
+            background-color: #d8bd86;
+        }
+
+        /* Back to Top Button */
+
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            background-color: #d8bd86;
+            color: #183528;
+            font-size: 26px;
+            font-weight: bold;
+            cursor: pointer;
+            display: none;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+            #backToTop:hover {
+                background-color: #183528;
+                color: #d8bd86;
+                transform: translateY(-4px);
+            }
+
+        /* LAVENZA Loading Screen */
+
+        #loader {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #183528;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+            .loader-content h1 {
+                color: #d8bd86;
+                font-size: 48px;
+                letter-spacing: 8px;
+                margin-bottom: 10px;
+                animation: logoEntrance 1s ease forwards;
+            }
+
+            .loader-content p {
+                color: #f8f5ef;
+                font-size: 12px;
+                letter-spacing: 5px;
+            }
+
+        .loader-line {
+            width: 120px;
+            height: 2px;
+            background-color: #d8bd86;
+            margin: 25px auto 0;
+            animation: loaderPulse 1.2s ease-in-out infinite;
+        }
+
+        @keyframes loaderPulse {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scaleX(0.5);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+        }
+
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Loading Screen Entrance Animations */
+
+        @keyframes logoEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .loader-content p {
+            animation: subtitleEntrance 1s ease 0.3s both;
+        }
+
+        @keyframes subtitleEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Quick View Modal */
+
+        .quick-view-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 11000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .quick-view-content {
+            position: relative;
+            background: #183528;
+            color: #f8f5ef;
+            width: 100%;
+            max-width: 750px;
+            border-radius: 15px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            animation: modalEntrance 0.4s ease;
+        }
+
+            .quick-view-content img {
+                width: 100%;
+                height: 100%;
+                min-height: 320px;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+
+                .quick-view-content img:hover {
+                    transform: scale(1.05);
+                }
+
+        .quick-view-details {
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 18px;
+        }
+
+            .quick-view-details h2 {
+                color: #d8bd86;
+                font-size: 28px;
+            }
+
+            .quick-view-details p {
+                line-height: 1.8;
+            }
+
+            .quick-view-details .price {
+                color: #d8bd86;
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+        .close-modal {
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            background: #d8bd86;
+            color: #183528;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            font-size: 25px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        @keyframes modalEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.96);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .quick-view-content {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+                .quick-view-content img {
+                    height: 220px;
+                    min-height: 220px;
+                }
+
+            .quick-view-details {
+                padding: 25px;
+                gap: 12px;
+            }
+
+                .quick-view-details h2 {
+                    font-size: 23px;
+                }
+        }
+
+        /* Interactive Menu Cards */
+
+        .menu-card {
+            cursor: pointer;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+            .menu-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            }
+
+
+        /* Footer Styling */
+
+        footer {
+            background-color: #183528;
+            color: #f8f5ef;
+            text-align: center;
+            padding: 30px 8%;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            border-top: 1px solid rgba(216, 189, 134, 0.4);
+        }
+
+            footer:hover {
+                color: #d8bd86;
+            }
+
+
+        /* Floating WhatsApp Button */
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 55px;
+            height: 55px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 30px;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+            .whatsapp-button:hover {
+                background-color: #183528;
+                color: #d8bd86;
+                transform: translateY(-5px) scale(1.08);
+                box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+            }
+
+            .whatsapp-button::before {
+                content: "Chat with us on WhatsApp";
+                position: absolute;
+                left: 70px;
+                background-color: #183528;
+                color: #d8bd86;
+                padding: 10px 15px;
+                border-radius: 6px;
+                font-size: 13px;
+                white-space: nowrap;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .whatsapp-button:hover::before {
+                opacity: 1;
+                visibility: visible;
+            }
+
+
+        /* WhatsApp Pulse Animation */
+
+        @keyframes whatsappPulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        .whatsapp-button {
+            animation: whatsappPulse 2s infinite;
+        }
+
+
+        /* Reservation Modal */
+
+        .reservation-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(5px);
+            z-index: 12000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.35s ease, backdrop-filter 0.35s ease;
+        }
+
+
+            .reservation-modal.show {
+                opacity: 1;
+            }
+
+
+            .reservation-modal.hide {
+                opacity: 0;
+            }
+
+
+        .reservation-content {
+            position: relative;
+            background: #183528;
+            color: #f8f5ef;
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 40px;
+            border-radius: 12px;
+            animation: modalEntrance 0.4s ease, goldGlowPulse 1.2s ease 0.4s 1;
+            border: 1px solid #d8bd86;
+            box-shadow: 0 0 12px rgba(216, 189, 134, 0.45), 0 0 28px rgba(216, 189, 134, 0.3), 0 0 45px rgba(216, 189, 134, 0.15);
+        }
+
+        @keyframes goldGlowPulse {
+            0% {
+                box-shadow: 0 0 12px rgba(216, 189, 134, 0.45), 0 0 28px rgba(216, 189, 134, 0.3), 0 0 45px rgba(216, 189, 134, 0.15);
+            }
+
+            50% {
+                box-shadow: 0 0 20px rgba(216, 189, 134, 0.8), 0 0 40px rgba(216, 189, 134, 0.55), 0 0 65px rgba(216, 189, 134, 0.3);
+            }
+
+            100% {
+                box-shadow: 0 0 12px rgba(216, 189, 134, 0.45), 0 0 28px rgba(216, 189, 134, 0.3), 0 0 45px rgba(216, 189, 134, 0.15);
+            }
+        }
+
+        .confirmation-content {
+            animation: modalEntrance 0.4s ease;
+        }
+
+
+        #confirmationModal {
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+            #confirmationModal.show {
+                opacity: 1;
+            }
+
+            #confirmationModal.hide {
+                opacity: 0;
+            }
+
+
+        .reservation-content h2 {
+            color: #d8bd86;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .reservation-content > p {
+            margin-bottom: 25px;
+            color: #e6e6e6;
+            line-height: 1.6;
+        }
+
+        #reservationForm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+            #reservationForm input,
+            #reservationForm select,
+            #reservationForm textarea {
+                width: 100%;
+                padding: 13px;
+                border: 1px solid rgba(216, 189, 134, 0.4);
+                border-radius: 5px;
+                background: #f8f5ef;
+                color: #183528;
+                font-family: inherit;
+                font-size: 14px;
+                box-sizing: border-box;
+                transition: border-color 0.3s ease, box-shadow 0.3s ease;
+                outline: none;
+            }
+
+
+                #reservationForm input:focus,
+                #reservationForm select:focus,
+                #reservationForm textarea:focus {
+                    border-color: #d8bd86;
+                    box-shadow: 0 0 8px rgba(216, 189, 134, 0.55);
+                }
+
+            #reservationForm label {
+                color: #d8bd86;
+                font-size: 14px;
+                margin-bottom: -10px;
+            }
+
+            #reservationForm textarea {
+                min-height: 90px;
+                resize: vertical;
+            }
+
+            #reservationForm button {
+                padding: 15px;
+                border: none;
+                border-radius: 5px;
+                background: #d8bd86;
+                color: #183528;
+                font-weight: bold;
+                font-size: 15px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+                #reservationForm button:hover {
+                    background: #ead5a7;
+                    transform: translateY(-3px);
+                    box-shadow: 0 8px 18px rgba(216, 189, 134, 0.25);
+                }
+
+        @media (max-width: 600px) {
+            .reservation-content {
+                padding: 30px 22px;
+            }
+        }
+
+        .time-error {
+            display: none;
+            position: relative;
+            width: fit-content;
+            max-width: 100%;
+            background: #f8f5ef;
+            color: #183528;
+            border: 1px solid #d8bd86;
+            padding: 9px 13px;
+            border-radius: 8px;
+            font-size: 12px;
+            margin-top: 2px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            animation: modalEntrance 0.25s ease;
+        }
+
+            .time-error::before {
+                content: "";
+                position: absolute;
+                top: -7px;
+                left: 18px;
+                width: 12px;
+                height: 12px;
+                background: #f8f5ef;
+                border-top: 1px solid #d8bd86;
+                border-left: 1px solid #d8bd86;
+                transform: rotate(45deg);
+            }
+
+
+        .error-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 16px;
+            height: 16px;
+            background: #d93025;
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            margin-right: 6px;
+        }
+
+
+
+        .confirmation-content h2 {
+            margin-bottom: 12px;
+        }
+
+        #confirmationDetails {
+            background: rgba(248, 245, 239, 0.08);
+            border: 1px solid rgba(216, 189, 134, 0.3);
+            border-radius: 8px;
+            padding: 18px;
+            margin: 20px 0;
+            line-height: 2;
+            overflow-wrap: anywhere;
+        }
+
+        .confirmation-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+            .confirmation-buttons button {
+                flex: 1;
+                padding: 13px 10px;
+                border: 1px solid #d8bd86;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: bold;
+                transition: all 0.3s ease;
+            }
+
+                .confirmation-buttons button:hover {
+                    background: #d8bd86;
+                    color: #183528;
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(216, 189, 134, 0.35);
+                }
+
+
+                .confirmation-buttons button:active {
+                    transform: translateY(1px) scale(0.97);
+                    box-shadow: 0 2px 6px rgba(216, 189, 134, 0.2);
+                }
+
+
+
+        #editReservation {
+            background: transparent;
+            color: #d8bd86;
+        }
+
+            #editReservation:hover {
+                background: rgba(216, 189, 134, 0.15);
+            }
+
+        #confirmReservation {
+            background: #d8bd86;
+            color: #183528;
+        }
+
+            #confirmReservation:hover {
+                background: #ead5a7;
+                transform: translateY(-2px);
+            }
+
+        @media (max-width: 450px) {
+            .confirmation-buttons {
+                flex-direction: column;
+            }
+        }
+
+
+        #confirmationDetails {
+            white-space: pre-line;
+        }
+
+
+        .reservation-success {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 90%;
+            max-width: 380px;
+            background: #183528;
+            color: #f8f5ef;
+            padding: 35px;
+            border-radius: 12px;
+            text-align: center;
+            z-index: 13000;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+            opacity: 0;
+            transition: opacity 0.35s ease, transform 0.35s ease;
+            border: 1px solid rgba(216, 189, 134, 0.5);
+        }
+
+            .reservation-success.show {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+
+
+        .success-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: #d8bd86;
+            color: #183528;
+            font-size: 30px;
+            font-weight: bold;
+            animation: successPulse 1.8s ease-in-out infinite;
+            box-shadow: 0 0 0 rgba(216, 189, 134, 0.5);
+        }
+
+
+        @keyframes successPulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(216, 189, 134, 0.5);
+                transform: scale(1);
+            }
+
+            50% {
+                box-shadow: 0 0 0 12px rgba(216, 189, 134, 0);
+                transform: scale(1.06);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(216, 189, 134, 0);
+                transform: scale(1);
+            }
+        }
+
+
+        .reservation-success h3 {
+            color: #d8bd86;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .reservation-success p {
+            line-height: 1.7;
+            margin-bottom: 22px;
+        }
+
+        .reservation-success button {
+            background: #d8bd86;
+            color: #183528;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .reservation-success button:hover {
+                background: #ead5a7;
+                transform: translateY(-3px);
+            }
+
+
+        .success-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: 12500;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+
+            .success-overlay.show {
+                opacity: 1;
+            }
+
+
+        button:active {
+            transform: translateY(1px) scale(0.97);
+            box-shadow: 0 2px 6px rgba(216, 189, 134, 0.2);
+        }
+
+
+        button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button-ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(216, 189, 134, 0.5);
+            transform: scale(0);
+            animation: buttonRipple 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes buttonRipple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+</head>
+
+<body>
+
+    <!-- LAVENZA Loading Screen -->
+    <div id="loader">
+        <div class="loader-content">
+            <h1>LAVENZA</h1>
+            <p>ITALIAN KITCHEN</p>
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header>
+
+        <div class="logo">
+            <img src="Lavenza-Logo.png" alt="LAVENZA Italian Kitchen">
+        </div>
+
+        <nav>
+            <a href="#" id="home-link">Home</a>
+            <a href="#about" id="about-link">About</a>
+            <a href="#menu" id="menu-link">Menu</a>
+            <a href="#contact" id="contact-link">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero reveal">
+
+        <div class="hero-content">
+
+            <h4>ITALIAN KITCHEN</h4>
+
+            <h1>A Taste of Italy, Made with Love.</h1>
+
+            <p>
+                Discover authentic Italian flavors, freshly prepared ingredients,
+                and unforgettable dining experiences at Lavenza.
+            </p>
+
+            <a href="#menu" class="menu-button">Explore Our Menu</a>
+
+            <a href="#" class="reservation-button" id="openReservation">
+                Reserve a Table
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about reveal" id="about">
+
+        <h2>Welcome to Lavenza</h2>
+
+        <p>
+            At Lavenza, we believe great food brings people together.
+            Inspired by the heart of Italy, our kitchen combines traditional
+            recipes, fresh ingredients, and passion to create dishes
+            worth sharing.
+        </p>
+
+    </section>
+
+
+    <!-- Menu Section -->
+    <section class="menu-section reveal" id="menu">
+
+        <div class="menu-header">
+            <span>OUR SELECTION</span>
+            <h2>Discover Our Menu</h2>
+            <p>Fresh ingredients, authentic flavors, and a little Italian magic.</p>
+        </div>
+
+        <!-- Menu Filter Buttons -->
+        <div class="menu-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="pizza">Pizza</button>
+            <button class="filter-btn" data-filter="pasta">Pasta</button>
+            <button class="filter-btn" data-filter="burger">Burger</button>
+            <button class="filter-btn" data-filter="dessert">Dessert</button>
+        </div>
+
+        <div class="menu-grid">
+
+            <!-- Food Item 1 -->
+            <div class="menu-card reveal" style="transition-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80" alt="Margherita Pizza" loading="lazy">
+                <div class="menu-card-content">
+                    <span class="food-category">PIZZA</span>
+                    <h3>Margherita Pizza</h3>
+                    <p>Fresh mozzarella, tomato sauce, basil, and olive oil.</p>
+                    <span class="price">$14</span>
+                </div>
+            </div>
+
+            <!-- Food Item 2 -->
+            <div class="menu-card reveal" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80" alt="Creamy Pasta" loading="lazy">
+                <div class="menu-card-content">
+                    <span class="food-category">PASTA</span>
+                    <h3>Creamy Alfredo</h3>
+                    <p>Rich cream sauce, parmesan cheese, and perfectly cooked pasta.</p>
+                    <span class="price">$16</span>
+                </div>
+            </div>
+
+            <!-- Food Item 3 -->
+            <div class="menu-card reveal" style="transition-delay: 0.3;">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="Classic Burger" loading="lazy">
+                <div class="menu-card-content">
+                    <span class="food-category">BURGER</span>
+                    <h3>Classic Burger</h3>
+                    <p>Juicy beef, fresh lettuce, tomato, and signature sauce.</p>
+                    <span class="price">$12</span>
+                </div>
+            </div>
+
+            <!-- Food Item 4 -->
+            <div class="menu-card reveal" style="transition-delay: 0.4s;">
+                <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=800&q=80" alt="Cheese Burger" loading="lazy">
+                <div class="menu-card-content">
+                    <span class="food-category">BURGER</span>
+                    <h3>Cheese Burger</h3>
+                    <p>Grilled beef, melted cheddar cheese, lettuce, and house sauce.</p>
+                    <span class="price">$13</span>
+                </div>
+            </div>
+
+            <!-- Food Item 5 -->
+            <div class="menu-card reveal" style="transition-delay: 0.4s;">
+                <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=800&q=80" alt="Pepperoni Pizza" loading="lazy">
+
+                <div class="menu-card-content">
+                    <span class="food-category">PIZZA</span>
+                    <h3>Pepperoni Pizza</h3>
+                    <p>Fresh mozzarella, tomato sauce, and premium pepperoni.</p>
+                    <span class="price">$17</span>
+                </div>
+            </div>
+
+            <!-- Food Item 6 -->
+            <div class="menu-card reveal" style="transition-delay: 0.5s;">
+                <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80" alt="Spaghetti Bolognese" loading="lazy">
+
+                <div class="menu-card-content">
+                    <span class="food-category">PASTA</span>
+                    <h3>Spaghetti Bolognese</h3>
+                    <p>Classic Italian pasta with rich tomato sauce and seasoned beef.</p>
+                    <span class="price">$18</span>
+                </div>
+            </div>
+
+            <!-- Food Item 7 -->
+            <div class="menu-card reveal" style="transition-delay: 0.6s;">
+                <img src="https://images.unsplash.com/photo-1766232333746-b0a2697d6d0d?auto=format&fit=crop&w=800&q=80" alt="Tiramisu" loading="lazy">
+
+                <div class="menu-card-content">
+                    <span class="food-category">DESSERT</span>
+                    <h3>Tiramisu</h3>
+                    <p>Layers of coffee-soaked biscuits, mascarpone cream, and rich cocoa.</p>
+                    <span class="price">$9</span>
+                </div>
+            </div>
+
+
+            <!-- Food Item 8 -->
+            <div class="menu-card reveal" style="transition-delay: 0.7s;">
+                <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80" alt="Chocolate Lava Cake" loading="lazy">
+
+                <div class="menu-card-content">
+                    <span class="food-category">DESSERT</span>
+                    <h3>Chocolate Lava Cake</h3>
+                    <p>Warm chocolate cake with a rich, flowing chocolate center.</p>
+                    <span class="price">$10</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+   
+    <!-- Contact Section -->
+    <section class="contact-section reveal" id="contact">
+
+        <div class="contact-header">
+            <span>GET IN TOUCH</span>
+            <h2>Visit Lavenza</h2>
+            <p>Good food, good company, and unforgettable moments.</p>
+        </div>
+
+        <div class="contact-container">
+
+            <div class="contact-card">
+                <h3>Our Location</h3>
+                <p>Beirut, Lebanon</p>
+            </div>
+
+            <div class="contact-card">
+                <h3>Opening Hours</h3>
+                <p>Monday - Sunday</p>
+                <p>12:00 PM - 11:00 PM</p>
+            </div>
+
+            <div class="contact-card">
+                <h3>Contact Us</h3>
+                <p>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@lavenza.com" target="_blank">
+                        info@lavenza.com
+                    </a>
+                </p>
+                <p><a href="tel:+96171734416">+961 71 734 416</a></p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        &copy; 2026 LAVENZA Italian Kitchen. All rights reserved.
+
+    </footer>
+
+    <script>
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const menuCards = document.querySelectorAll('.menu-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function () {
+
+                const filter = this.getAttribute('data-filter');
+
+                menuCards.forEach(card => {
+                    const category = card.querySelector('.food-category').textContent.toLowerCase();
+
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+            });
+        });
+    </script>
+
+    <script>
+        const revealElements = document.querySelectorAll('.reveal');
+
+        function revealOnScroll() {
+            revealElements.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
+
+    <script>
+        const sections = [
+            document.querySelector('.hero'),
+            document.querySelector('.about'),
+            document.querySelector('.menu-section'),
+            document.querySelector('.contact-section')
+        ];
+
+        const navLinks = [
+            document.getElementById('home-link'),
+            document.getElementById('about-link'),
+            document.getElementById('menu-link'),
+            document.getElementById('contact-link')
+        ];
+
+        function updateActiveNavigation() {
+            let currentSection = 0;
+
+            sections.forEach((section, index) => {
+                if (section.getBoundingClientRect().top <= 150) {
+                    currentSection = index;
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            navLinks[currentSection].classList.add('active');
+        }
+
+        window.addEventListener('scroll', updateActiveNavigation);
+
+        updateActiveNavigation();
+    </script>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" aria-label="Back to top">
+        ↑
+    </button>
+
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+    <script>
+        window.addEventListener('load', function () {
+            const loader = document.getElementById('loader');
+
+            setTimeout(function () {
+                loader.classList.add('hidden');
+            }, 1200);
+        });
+    </script>
+
+
+    <!-- Quick View Modal -->
+    <div id="quickViewModal" class="quick-view-modal">
+
+        <div class="quick-view-content">
+
+            <button id="closeQuickView" class="close-modal">&times;</button>
+
+            <img id="quickViewImage" src="" alt="">
+
+            <div class="quick-view-details">
+                <span id="quickViewCategory" class="food-category"></span>
+
+                <h2 id="quickViewTitle"></h2>
+
+                <p id="quickViewDescription"></p>
+
+                <span id="quickViewPrice" class="price"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Reservation Modal -->
+    <div id="reservationModal" class="reservation-modal">
+
+        <div class="reservation-content">
+
+            <button id="closeReservation" class="close-modal">&times;</button>
+
+            <h2>Reserve Your Table</h2>
+            <p>We look forward to welcoming you to LAVENZA.</p>
+
+            <form id="reservationForm">
+
+                <input type="text" id="customerName"
+                       placeholder="Your Full Name"
+                       pattern="[A-Za-zÀ-ÿ\u0600-\u06FF\s'\x2D]+"
+                       title="Please enter a valid name."
+                       required>
+
+                <input type="tel" id="customerPhone"
+                       placeholder="Your Phone Number"
+                       title="Please enter a valid phone number."
+                       required>
+
+                <label for="reservationDate">Reservation Date</label>
+                <input type="date" id="reservationDate" required>
+
+                <label for="reservationTime">Reservation Time</label>
+                <input type="time" id="reservationTime" required>
+
+                <span id="timeError" class="time-error">
+                    <strong class="error-icon">!</strong>
+                    Please choose a time between 12:00 PM and 11:00 PM.
+                </span>
+
+                <label for="guestCount">Number of Guests</label>
+                <select id="guestCount" required>
+                    <option value="1">1 Guest</option>
+                    <option value="2" selected>2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5">5 Guests</option>
+                    <option value="6">6 Guests</option>
+                    <option value="7">7 Guests</option>
+                    <option value="8">8 Guests</option>
+                </select>
+
+                <textarea id="specialRequests"
+                          placeholder="Special Requests (Optional)"></textarea>
+
+                <button type="submit">Continue to WhatsApp</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- Reservation Confirmation Modal -->
+    <div id="confirmationModal" class="reservation-modal">
+
+        <div class="reservation-content confirmation-content">
+
+            <button type="button" id="closeConfirmation" class="close-modal">&times;</button>
+
+            <h2>Confirm Your Reservation</h2>
+            <p>Please review your reservation details before continuing.</p>
+
+            <div id="confirmationDetails"></div>
+
+            <div class="confirmation-buttons">
+                <button type="button" id="editReservation">Edit Details</button>
+                <button type="button" id="confirmReservation">Confirm & Continue</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Reservation Success Notification -->
+    <div id="successOverlay" class="success-overlay"></div>
+    <div id="reservationSuccess" class="reservation-success">
+        <span class="success-icon">✓</span>
+        <h3>Reservation Ready!</h3>
+        <p>Your reservation details are ready in WhatsApp. Please send the message to complete your request.</p>
+        <button id="closeSuccess">Got It</button>
+    </div>
+
+    <script>
+        const quickViewModal = document.getElementById('quickViewModal');
+        const closeQuickView = document.getElementById('closeQuickView');
+
+        const menuCardsForPopup = document.querySelectorAll('.menu-card');
+
+        menuCardsForPopup.forEach(card => {
+            card.addEventListener('click', function () {
+
+                const image = card.querySelector('img');
+                const category = card.querySelector('.food-category');
+                const title = card.querySelector('h3');
+                const description = card.querySelector('p');
+                const price = card.querySelector('.price');
+
+                document.getElementById('quickViewImage').src = image.src;
+                document.getElementById('quickViewImage').alt = image.alt;
+                document.getElementById('quickViewCategory').textContent = category.textContent;
+                document.getElementById('quickViewTitle').textContent = title.textContent;
+                document.getElementById('quickViewDescription').textContent = description.textContent;
+                document.getElementById('quickViewPrice').textContent = price.textContent;
+
+                quickViewModal.style.display = 'flex';
+            });
+        });
+
+        closeQuickView.addEventListener('click', function () {
+            quickViewModal.style.display = 'none';
+        });
+
+        quickViewModal.addEventListener('click', function (event) {
+            if (event.target === quickViewModal) {
+                quickViewModal.style.display = 'none';
+            }
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    quickViewModal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+
+    <script>
+        const reservationModal = document.getElementById('reservationModal');
+        const openReservation = document.getElementById('openReservation');
+        const closeReservation = document.getElementById('closeReservation');
+
+        openReservation.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            reservationModal.style.display = 'flex';
+
+            requestAnimationFrame(function () {
+                reservationModal.classList.add('show');
+            });
+
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeReservation.addEventListener('click', function () {
+            reservationModal.classList.add('hide');
+            reservationModal.classList.remove('show');
+
+            setTimeout(function () {
+                reservationModal.style.display = 'none';
+                reservationModal.classList.remove('hide');
+                document.body.style.overflow = '';
+            }, 350);
+        });
+
+        reservationModal.addEventListener('click', function (event) {
+            if (event.target === reservationModal) {
+                reservationModal.classList.add('hide');
+                reservationModal.classList.remove('show');
+
+                setTimeout(function () {
+                    reservationModal.style.display = 'none';
+                    reservationModal.classList.remove('hide');
+                    document.body.style.overflow = '';
+                }, 350);
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && reservationModal.style.display === 'flex') {
+                reservationModal.classList.add('hide');
+                reservationModal.classList.remove('show');
+
+                setTimeout(function () {
+                    reservationModal.style.display = 'none';
+                    reservationModal.classList.remove('hide');
+                    document.body.style.overflow = '';
+                }, 350);
+            }
+        });
+
+        const reservationForm = document.getElementById('reservationForm');
+
+        let pendingWhatsAppURL = '';
+
+        const confirmationModal = document.getElementById('confirmationModal');
+        const confirmationDetails = document.getElementById('confirmationDetails');
+        const closeConfirmation = document.getElementById('closeConfirmation');
+        const editReservation = document.getElementById('editReservation');
+
+        closeConfirmation.addEventListener('click', function () {
+            confirmationModal.classList.add('hide');
+
+            setTimeout(function () {
+                confirmationModal.style.display = 'none';
+                confirmationModal.classList.remove('hide');
+
+                confirmReservation.disabled = false;
+                reservationModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }, 350);
+        });
+
+        editReservation.addEventListener('click', function () {
+            confirmationModal.classList.add('hide');
+
+            setTimeout(function () {
+                confirmationModal.style.display = 'none';
+                confirmationModal.classList.remove('hide');
+
+                confirmReservation.disabled = false;
+                reservationModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }, 350);
+        });
+        const confirmReservation = document.getElementById('confirmReservation');
+        confirmReservation.disabled = false;
+
+        const reservationSuccess = document.getElementById('reservationSuccess');
+        const successOverlay = document.getElementById('successOverlay');
+        const closeSuccess = document.getElementById('closeSuccess');
+
+        confirmReservation.addEventListener('click', function () {
+            if (pendingWhatsAppURL) {
+                const whatsappWindow = window.open(pendingWhatsAppURL, '_blank');
+                confirmReservation.disabled = true;
+
+                if (!whatsappWindow) {
+                    confirmReservation.disabled = false;
+                }
+
+                if (whatsappWindow) {
+                    confirmationModal.style.display = 'none';
+                    reservationSuccess.style.display = 'block';
+                    requestAnimationFrame(function () {
+                        successOverlay.classList.add('show');
+                        reservationSuccess.classList.add('show');
+                    });
+                    successOverlay.style.display = 'block';
+                    reservationForm.reset();
+                    pendingWhatsAppURL = '';
+                }
+            }
+        });
+
+        function hideSuccessNotification() {
+            successOverlay.classList.remove('show');
+            reservationSuccess.classList.remove('show');
+
+            setTimeout(function () {
+                reservationSuccess.style.display = 'none';
+                successOverlay.style.display = 'none';
+                document.body.style.overflow = '';
+            }, 350);
+        }
+
+        closeSuccess.addEventListener('click', hideSuccessNotification);
+
+        successOverlay.addEventListener('click', hideSuccessNotification);
+
+        const phoneInput = document.getElementById('customerPhone');
+
+        phoneInput.addEventListener('input', function () {
+            phoneInput.setCustomValidity('');
+        });
+
+        const reservationTime = document.getElementById('reservationTime');
+        const timeError = document.getElementById('timeError');
+
+        reservationTime.addEventListener('input', function () {
+            const selectedTime = reservationTime.value;
+
+            if (selectedTime && (selectedTime < '12:00' || selectedTime > '23:00')) {
+                timeError.style.display = 'block';
+            } else {
+                timeError.style.display = 'none';
+            }
+        });
+
+        const reservationDate = document.getElementById('reservationDate');
+
+        const today = new Date();
+        const localToday = new Date(
+            today.getTime() - today.getTimezoneOffset() * 60000
+        ).toISOString().split('T')[0];
+
+        reservationDate.min = localToday;
+
+
+        reservationForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const selectedTime = document.getElementById('reservationTime').value;
+            const timeError = document.getElementById('timeError');
+
+            if (selectedTime < '12:00' || selectedTime > '23:00') {
+                timeError.style.display = 'block';
+                document.getElementById('reservationTime').focus();
+                return;
+
+            }
+
+            timeError.style.display = 'none';
+
+            const name = document.getElementById('customerName').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            if (!/^[0-9+() -]{7,20}$/.test(phone)) {
+                const phoneInput = document.getElementById('customerPhone');
+
+                phoneInput.setCustomValidity('Please enter a valid phone number.');
+                phoneInput.reportValidity();
+                
+
+                phoneInput.focus();
+                return;
+            }
+            const date = document.getElementById('reservationDate').value;
+            const time = document.getElementById('reservationTime').value;
+
+            const [hourValue, minuteValue] = time.split(':');
+
+            let hours = parseInt(hourValue, 10);
+            const minutes = minuteValue;
+
+            const period = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12;
+
+            const formattedTime = `${hours}:${minutes} ${period}`;
+
+            const guests = document.getElementById('guestCount').value;
+            const requests = document.getElementById('specialRequests').value.trim();
+
+            const message =
+                `Hello LAVENZA! I would like to request a table reservation.\n\n` +
+                `Name: ${name}\n` +
+                `Phone: ${phone}\n` +
+                `Date: ${date}\n` +
+                `Time: ${formattedTime}\n` +
+                `Guests: ${guests}\n` +
+                `Special requests: ${requests || 'None'}`;
+
+            pendingWhatsAppURL = `https://wa.me/96171734416?text=${encodeURIComponent(message)}`;
+
+            confirmationDetails.textContent =
+                `Name: ${name}\n` +
+                `Phone: ${phone}\n` +
+                `Date: ${date}\n` +
+                `Time: ${formattedTime}\n` +
+                `Guests: ${guests}\n` +
+                `Special requests: ${requests || 'None'}`;
+
+            confirmationModal.style.display = 'flex';
+
+            requestAnimationFrame(function () {
+                confirmationModal.classList.add('show');
+            });
+
+            reservationModal.style.display = 'none';
+            document.body.style.overflow = 'hidden';
+        });
+
+
+
+        document.querySelectorAll('button').forEach(function (button) {
+
+            button.addEventListener('click', function (event) {
+
+                const ripple = document.createElement('span');
+
+                ripple.classList.add('button-ripple');
+
+                const rect = button.getBoundingClientRect();
+
+                const size = Math.max(rect.width, rect.height);
+
+                ripple.style.width = size + 'px';
+                ripple.style.height = size + 'px';
+
+                ripple.style.left = (event.clientX - rect.left - size / 2) + 'px';
+                ripple.style.top = (event.clientY - rect.top - size / 2) + 'px';
+
+                button.appendChild(ripple);
+
+                ripple.addEventListener('animationend', function () {
+                    ripple.remove();
+                });
+
+            });
+
+        });
+
+
+
+    </script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/96171734416"
+       class="whatsapp-button"
+       target="_blank"
+       aria-label="Contact us on WhatsApp">
+
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
